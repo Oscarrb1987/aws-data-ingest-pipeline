@@ -1,0 +1,26 @@
+# LocalStack con los servicios que necesita la demo.
+#
+# Se usan solo servicios de la edicion community: S3, DynamoDB y SNS. Glue y
+# Athena no estan disponibles ahi, asi que el runner local los sustituye por
+# DuckDB ejecutando exactamente el mismo SQL de verificacion.
+
+services:
+  localstack:
+    image: localstack/localstack:3.8
+    container_name: datamap-localstack
+    ports:
+      - "4566:4566"
+    environment:
+      SERVICES: s3,dynamodb,sns
+      AWS_DEFAULT_REGION: eu-west-1
+      DEBUG: "0"
+      PERSISTENCE: "0"
+      EAGER_SERVICE_LOADING: "1"
+    volumes:
+      - "./.volume:/var/lib/localstack"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:4566/_localstack/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s

@@ -1,0 +1,104 @@
+# Contrato de datos y reglas de calidad.
+#
+# Anadir una comprobacion aqui no requiere tocar codigo ni redesplegar la
+# logica: la Lambda lee este fichero y compila cada regla a SQL.
+#
+# severity:
+#   critical -> detiene el pipeline y lanza alerta
+#   warning  -> queda registrada en el informe pero no bloquea
+
+version: 1
+
+datasets:
+  clientes:
+    table: clientes
+    partition_column: dt
+    primary_key: [cliente_id]
+    business_date_column: fecha_negocio
+    numeric_columns: [importe_total]
+
+    schema:
+      - { name: cliente_id, type: string, required: true }
+      - { name: nombre, type: string, required: true }
+      - { name: email, type: string, required: true }
+      - { name: pais, type: string, required: true }
+      - { name: segmento, type: string, required: false }
+      - { name: fecha_alta, type: date, required: true }
+      - { name: fecha_negocio, type: date, required: true }
+      - { name: importe_total, type: double, required: false }
+
+    checks:
+      - id: filas_vs_manifest
+        type: row_count
+        severity: critical
+
+      - id: clave_primaria_unica
+        type: unique
+        columns: [cliente_id]
+        severity: critical
+
+      - id: sin_nulos_obligatorios
+        type: not_null
+        columns: [cliente_id, nombre, email, pais, fecha_alta]
+        severity: critical
+
+      - id: fecha_negocio_cuadra_particion
+        type: business_date_matches_partition
+        severity: critical
+
+      - id: pais_en_dominio
+        type: accepted_values
+        column: pais
+        values: [ES, PT, FR, IT, DE, NL, BE]
+        severity: critical
+
+      - id: importe_no_negativo
+        type: expression
+        expression: "importe_total >= 0"
+        description: "importes negativos"
+        severity: critical
+
+      - id: email_con_arroba
+        type: expression
+        expression: "email LIKE '%@%.%'"
+        description: "emails con forma no valida"
+        severity: warning
+
+      - id: segmento_conocido
+        type: accepted_values
+        column: segmento
+        values: [retail, premium, corporate]
+        severity: warning
+
+  # Segundo dataset de ejemplo: demuestra que anadir un origen nuevo es
+  # anadir un bloque YAML, no un pipeline nuevo.
+  transacciones:
+    table: transacciones
+    partition_column: dt
+    primary_key: [transaccion_id]
+    business_date_column: fecha_negocio
+    numeric_columns: [importe]
+
+    schema:
+      - { name: transaccion_id, type: string, required: true }
+      - { name: cliente_id, type: string, required: true }
+      - { name: importe, type: double, required: true }
+      - { name: divisa, type: string, required: true }
+      - { name: fecha_negocio, type: date, required: true }
+
+    checks:
+      - id: filas_vs_manifest
+        type: row_count
+      - id: clave_primaria_unica
+        type: unique
+      - id: sin_nulos_obligatorios
+        type: not_null
+      - id: divisa_en_dominio
+        type: accepted_values
+        column: divisa
+        values: [EUR, USD, GBP]
+      - id: importe_distinto_de_cero
+        type: expression
+        expression: "importe <> 0"
+        description: "transacciones con importe cero"
+        severity: warning

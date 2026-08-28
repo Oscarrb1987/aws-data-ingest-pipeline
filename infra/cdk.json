@@ -1,0 +1,18 @@
+{
+  "app": "python3 app.py",
+  "watch": {
+    "include": ["**"],
+    "exclude": ["README.md", "cdk*.json", "**/__pycache__", "**/*.pyc", "cdk.out"]
+  },
+  "context": {
+    "env": "dev",
+    "project": "datamap",
+    "business_timezone": "Europe/Madrid",
+    "verify_b_schedule": "08:00",
+    "alert_emails": [],
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/aws-iam:minimizePolicies": true,
+    "@aws-cdk/core:target-partitions": ["aws"]
+  }
+}

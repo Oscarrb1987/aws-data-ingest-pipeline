@@ -1,0 +1,20 @@
+{
+  "dataset": "clientes",
+  "business_date": "2026-08-27",
+  "row_count": 200,
+  "sha256": "35e7a27ea168b4a6a485b5abb590634c687588e0379440484d1ec879c57e1b3d",
+  "source_system": "datamap",
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "columns": [
+    "cliente_id",
+    "nombre",
+    "email",
+    "pais",
+    "segmento",
+    "fecha_alta",
+    "fecha_negocio",
+    "importe_total"
+  ],
+  "generated_at": "2026-08-27T06:15:00Z"
+}
