@@ -1,6 +1,6 @@
 # Pipeline de ingesta y doble verificación en AWS
 
-[![CI](https://github.com/oscarrama007/aws-data-ingest-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/oscarrama007/aws-data-ingest-pipeline/actions/workflows/ci.yml)
+[![CI](https://github.com/Oscarrb1987/aws-data-ingest-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/Oscarrb1987/aws-data-ingest-pipeline/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
 [![AWS CDK](https://img.shields.io/badge/IaC-AWS%20CDK-orange)](https://aws.amazon.com/cdk/)
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-green)](LICENSE)

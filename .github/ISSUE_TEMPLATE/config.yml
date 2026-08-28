@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Pregunta o duda de uso
-    url: https://github.com/oscarrama007/aws-data-ingest-pipeline/discussions
+    url: https://github.com/Oscarrb1987/aws-data-ingest-pipeline/discussions
     about: Para preguntas abre una discusión, no un issue.
   - name: Vulnerabilidad de seguridad
-    url: https://github.com/oscarrama007/aws-data-ingest-pipeline/security/advisories/new
+    url: https://github.com/Oscarrb1987/aws-data-ingest-pipeline/security/advisories/new
     about: Repórtala en privado, nunca en un issue público.

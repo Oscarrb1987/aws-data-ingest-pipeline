@@ -17,7 +17,7 @@
 
 set -euo pipefail
 
-USUARIO="${USUARIO:-oscarrama007}"
+USUARIO="${USUARIO:-Oscarrb1987}"
 REPO="${REPO:-aws-data-ingest-pipeline}"
 RAMA="${RAMA:-main}"
 PRIVADO="${PRIVADO:-0}"

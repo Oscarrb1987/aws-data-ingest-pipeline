@@ -27,7 +27,7 @@ Si prefieres verlo primero en privado y publicarlo cuando la CI esté en verde:
 ```bash
 PRIVADO=1 bash scripts/publish_github.sh
 # ...cuando estés conforme:
-gh repo edit oscarrama007/aws-data-ingest-pipeline \
+gh repo edit Oscarrb1987/aws-data-ingest-pipeline \
   --visibility public --accept-visibility-change-consequences
 ```
 
@@ -41,8 +41,8 @@ Copia tu dirección exacta desde GitHub → *Settings* → *Emails* → *Keep my
 addresses private*; tiene la forma `12345678+usuario@users.noreply.github.com`.
 
 ```bash
-git config user.name  "oscarrama007"
-git config user.email "TU-ID+oscarrama007@users.noreply.github.com"
+git config user.name  "Oscarrb1987"
+git config user.email "TU-ID+Oscarrb1987@users.noreply.github.com"
 git rebase --root --exec 'git commit --amend --no-edit --reset-author'
 ```
 
@@ -56,7 +56,7 @@ git rebase --root --exec 'git commit --amend --no-edit --reset-author'
 **3. Súbelo:**
 
 ```bash
-git remote add origin https://github.com/oscarrama007/aws-data-ingest-pipeline.git
+git remote add origin https://github.com/Oscarrb1987/aws-data-ingest-pipeline.git
 git branch -M main
 git push -u origin main
 ```
@@ -99,7 +99,7 @@ git push -u origin main
 El texto está en [`post-linkedin.md`](post-linkedin.md), con dos versiones.
 La principal cuenta el punto ciego del proceso manual; la corta va al grano.
 
-Las URL ya apuntan a `oscarrama007/aws-data-ingest-pipeline`; si publicas con
+Las URL ya apuntan a `Oscarrb1987/aws-data-ingest-pipeline`; si publicas con
 otro nombre, ajústalas.
 
 ### Cómo publicarlo
