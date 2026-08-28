@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 app = cdk.App()
 
 env_name = app.node.try_get_context("env") or "dev"
-project = app.node.try_get_context("project") or "datamap"
+project = app.node.try_get_context("project") or "dataflow"
 
 env = cdk.Environment(
     account=os.getenv("CDK_DEFAULT_ACCOUNT"),

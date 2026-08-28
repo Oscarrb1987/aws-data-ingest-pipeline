@@ -1,6 +1,6 @@
 # Post para LinkedIn
 
-Sustituye `TU-USUARIO` por tu usuario de GitHub antes de publicar.
+Sustituye `oscarrama007` por tu usuario de GitHub antes de publicar.
 
 ---
 
@@ -39,7 +39,7 @@ sino escribir qué significa exactamente "los datos están bien".
 
 Repo con la infraestructura en CDK, tests y una demo que corre en local sin
 cuenta de AWS 👇
-github.com/TU-USUARIO/datamap-aws-ingest-pipeline
+github.com/oscarrama007/aws-data-ingest-pipeline
 
 #AWS #DataEngineering #Serverless #StepFunctions #CDK #DataQuality
 
@@ -62,7 +62,7 @@ desplegado con CDK. Las reglas de calidad son YAML que se compila a SQL.
 
 Menos de un euro al mes. Y funciona en local sin cuenta de AWS.
 
-github.com/TU-USUARIO/datamap-aws-ingest-pipeline
+github.com/oscarrama007/aws-data-ingest-pipeline
 
 #AWS #DataEngineering #Serverless #DataQuality
 

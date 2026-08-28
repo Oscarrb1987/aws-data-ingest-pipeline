@@ -50,7 +50,7 @@ def step(n: int, title: str) -> None:
 
 
 def upload(csv_path: Path) -> tuple[str, str, Manifest]:
-    """Sube CSV y manifest a landing/, como haria el proceso de Datamap."""
+    """Sube CSV y manifest a landing/, como haria el proceso del sistema origen."""
     settings = get_settings()
     manifest_path = csv_path.with_suffix("").with_suffix(".manifest.json")
     if not manifest_path.exists():
@@ -102,7 +102,7 @@ def main() -> int:
     state: dict = {}
     try:
         # --------------------------------------------------- 0. Subida
-        step(0, "Datamap deposita el CSV y su manifest en landing/")
+        step(0, "El sistema origen deposita el CSV y su manifest en landing/")
         data_key, manifest_key, manifest = upload(csv_path)
         print(
             f"  dataset={manifest.dataset} fecha={manifest.business_date} "

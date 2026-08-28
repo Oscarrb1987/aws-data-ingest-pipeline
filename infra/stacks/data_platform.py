@@ -162,7 +162,7 @@ class DataPlatformStack(cdk.Stack):
             catalog_id=self.account,
             database_input=glue.CfnDatabase.DatabaseInputProperty(
                 name=self.glue_database_name,
-                description="Zona curada del pipeline de Datamap",
+                description="Zona curada del pipeline de ingesta",
             ),
         )
 

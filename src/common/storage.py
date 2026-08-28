@@ -50,7 +50,7 @@ def sha256_of_object(bucket: str, key: str) -> str:
     """Checksum en streaming: no carga el fichero entero en memoria.
 
     Importante porque las Lambdas tienen memoria limitada y los ficheros de
-    Datamap pueden superar el gigabyte.
+    el sistema origen pueden superar el gigabyte.
     """
     digest = hashlib.sha256()
     body = client("s3").get_object(Bucket=bucket, Key=key)["Body"]

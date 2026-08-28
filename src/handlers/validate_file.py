@@ -1,7 +1,7 @@
 """Lambda 1: validacion previa a la carga.
 
 Es la puerta de entrada. Comprueba, sin desplegar un cluster y en cuestion de
-segundos, que el fichero que ha dejado Datamap es el que dice ser:
+segundos, que el fichero que ha dejado el sistema origen es el que dice ser:
 
   - existe el manifest y el CSV al que apunta
   - el checksum SHA-256 coincide (el fichero no se ha truncado ni corrompido)

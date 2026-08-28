@@ -7,7 +7,7 @@
 services:
   localstack:
     image: localstack/localstack:3.8
-    container_name: datamap-localstack
+    container_name: dataflow-localstack
     ports:
       - "4566:4566"
     environment:

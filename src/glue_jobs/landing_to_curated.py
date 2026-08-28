@@ -14,7 +14,7 @@ El punto 4 es lo que permite reejecutar el job sin duplicar datos: con
 fuese la primera vez.
 
 Ejecucion:
-    aws glue start-job-run --job-name datamap-landing-to-curated \\
+    aws glue start-job-run --job-name dataflow-landing-to-curated \\
         --arguments '{"--dataset":"clientes","--business_date":"2026-08-27", ...}'
 """
 
@@ -122,7 +122,7 @@ def main() -> None:
     )
 
     row_count = df.count()
-    print(f"[datamap] dataset={args['dataset']} dt={args['business_date']} filas={row_count}")
+    print(f"[dataflow] dataset={args['dataset']} dt={args['business_date']} filas={row_count}")
 
     (
         df.repartition(1)

@@ -119,7 +119,7 @@ def make_manifest(payload: bytes, rows: int, business_date: str = BUSINESS_DATE)
         "business_date": business_date,
         "row_count": rows,
         "sha256": hashlib.sha256(payload).hexdigest(),
-        "source_system": "datamap",
+        "source_system": "sistema-origen",
         "delimiter": ",",
         "encoding": "utf-8",
         "columns": COLUMNS,

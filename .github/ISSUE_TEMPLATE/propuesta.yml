@@ -1,0 +1,35 @@
+name: Propuesta de mejora
+description: Una idea para el pipeline
+labels: ["propuesta"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qué problema resuelve
+      description: >
+        Describe la situación real, no la solución. "Al recargar un rango de
+        fechas hay que lanzar el pipeline a mano día a día" es mejor que
+        "añadir un modo backfill".
+    validations:
+      required: true
+
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Qué propones
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Qué alternativas has descartado y por qué
+
+  - type: checkboxes
+    id: encaje
+    attributes:
+      label: Encaje con el proyecto
+      options:
+        - label: No añade dependencias pesadas al paquete de las Lambdas
+        - label: No acopla la verificación a un motor de consulta concreto
+        - label: Lo que se pueda resolver en `rules/checks.yaml` va ahí, no en el código

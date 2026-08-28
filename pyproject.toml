@@ -1,5 +1,5 @@
 [project]
-name = "datamap-ingest"
+name = "aws-data-ingest"
 version = "1.0.0"
 description = "Pipeline serverless en AWS para ingesta CSV, transformacion con Glue y doble verificacion de calidad de datos"
 requires-python = ">=3.11"

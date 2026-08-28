@@ -1,5 +1,11 @@
 # Pipeline de ingesta y doble verificación en AWS
 
+[![CI](https://github.com/oscarrama007/aws-data-ingest-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/oscarrama007/aws-data-ingest-pipeline/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
+[![AWS CDK](https://img.shields.io/badge/IaC-AWS%20CDK-orange)](https://aws.amazon.com/cdk/)
+[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-green)](LICENSE)
+[![Cobertura 96%](https://img.shields.io/badge/cobertura-96%25-brightgreen)](#calidad)
+
 Automatiza de principio a fin una tarea que hasta ahora era manual: subir un CSV,
 lanzar el job que lo carga, comprobar que los datos están, y volver a comprobar
 más tarde que siguen estando bien.
@@ -126,7 +132,7 @@ para que un error no se lleve la factura por delante.
 
 **Lambdas en ARM64.** Mismo código, ~20 % menos de coste.
 
-**Checksum y conteo en streaming.** Un fichero de Datamap puede pasar del
+**Checksum y conteo en streaming.** Un fichero del sistema origen puede pasar del
 gigabyte; la Lambda nunca lo carga entero en memoria.
 
 **Esquema explícito, nunca inferido.** La inferencia hace que el mismo fichero se
@@ -240,6 +246,12 @@ Una carga diaria de un fichero de ~100 MB:
 | S3 + DynamoDB + SNS | almacenamiento y escrituras | ~0,50 $ |
 
 Menos de un euro al mes. El estado `Wait` de seis horas no cuesta nada.
+
+## Contribuir
+
+Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir un pull request, y
+[SECURITY.md](SECURITY.md) antes de desplegar esto en una cuenta de AWS con
+datos reales.
 
 ## Licencia
 

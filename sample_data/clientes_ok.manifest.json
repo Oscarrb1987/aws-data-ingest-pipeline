@@ -3,7 +3,7 @@
   "business_date": "2026-08-27",
   "row_count": 200,
   "sha256": "35e7a27ea168b4a6a485b5abb590634c687588e0379440484d1ec879c57e1b3d",
-  "source_system": "datamap",
+  "source_system": "sistema-origen",
   "delimiter": ",",
   "encoding": "utf-8",
   "columns": [

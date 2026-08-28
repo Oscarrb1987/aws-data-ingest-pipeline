@@ -14,7 +14,7 @@ La misma vista en texto, por si el SVG no esta disponible:
                        │              CUENTA AWS                      │
                        │                                              │
   ┌─────────┐          │  ┌────────────────────────────────────────┐  │
-  │ Datamap │──────────┼─►│ S3  datamap-datalake-<env>-<cuenta>    │  │
+  │ Origen  │──────────┼─►│ S3  dataflow-datalake-<env>-<cuenta>    │  │
   │ (origen)│  CSV +   │  │                                        │  │
   └─────────┘  manifest│  │  landing/     dataset=X/dt=YYYY-MM-DD/ │  │
                        │  │  curated/     X/dt=YYYY-MM-DD/*.parquet│  │

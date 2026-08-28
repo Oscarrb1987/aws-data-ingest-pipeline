@@ -36,17 +36,17 @@ def plantillas():
     if not (ROOT / "build" / "lambda").exists():
         pytest.skip("ejecuta `make package` antes de las pruebas de infraestructura")
 
-    app = cdk.App(context={"env": "test", "project": "datamap"})
+    app = cdk.App(context={"env": "test", "project": "dataflow"})
     contract = load_contract(ROOT / "rules" / "checks.yaml")
 
     platform = DataPlatformStack(
-        app, "platform", env=ENV, project="datamap", env_name="test", contract=contract
+        app, "platform", env=ENV, project="dataflow", env_name="test", contract=contract
     )
     pipeline = IngestPipelineStack(
         app,
         "pipeline",
         env=ENV,
-        project="datamap",
+        project="dataflow",
         env_name="test",
         contract=contract,
         data_bucket=platform.data_bucket,
@@ -140,7 +140,7 @@ def test_hay_cuatro_lambdas_de_negocio(plantillas):
     _, pipeline = plantillas
     for modulo in ("validate_file", "verify_load", "schedule", "notify_failure"):
         pipeline.has_resource_properties(
-            "AWS::Lambda::Function", {"FunctionName": f"datamap-{modulo}-test"}
+            "AWS::Lambda::Function", {"FunctionName": f"dataflow-{modulo}-test"}
         )
 
 
@@ -148,7 +148,7 @@ def test_las_lambdas_corren_en_arm(plantillas):
     _, pipeline = plantillas
     pipeline.has_resource_properties(
         "AWS::Lambda::Function",
-        {"FunctionName": "datamap-verify_load-test", "Architectures": ["arm64"]},
+        {"FunctionName": "dataflow-verify_load-test", "Architectures": ["arm64"]},
     )
 
 

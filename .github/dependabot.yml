@@ -1,0 +1,32 @@
+version: 2
+
+updates:
+  # Dependencias de Python del proyecto y de la infraestructura.
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      # Un solo PR al mes para el ruido de desarrollo; las de runtime,
+      # separadas, porque esas sí hay que mirarlas con calma.
+      desarrollo:
+        patterns: ["ruff", "pytest*", "moto*", "duckdb", "pandas", "playwright"]
+    commit-message:
+      prefix: "deps"
+
+  - package-ecosystem: pip
+    directory: "/infra"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "deps(infra)"
+
+  # Las acciones de GitHub se fijan por versión mayor; conviene enterarse
+  # cuando sale una nueva.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"

@@ -6,7 +6,7 @@
   },
   "context": {
     "env": "dev",
-    "project": "datamap",
+    "project": "dataflow",
     "business_timezone": "Europe/Madrid",
     "verify_b_schedule": "08:00",
     "alert_emails": [],

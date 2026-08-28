@@ -62,7 +62,7 @@ class Manifest:
     business_date: str
     row_count: int
     sha256: str
-    source_system: str = "datamap"
+    source_system: str = "sistema-origen"
     delimiter: str = ","
     encoding: str = "utf-8"
     columns: list[str] = field(default_factory=list)

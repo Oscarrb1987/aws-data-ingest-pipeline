@@ -69,7 +69,7 @@ def write(name: str, payload: bytes, *, declared_rows: int | None = None, sha: s
         "business_date": BUSINESS_DATE,
         "row_count": declared_rows if declared_rows is not None else payload.count(b"\n") - 1,
         "sha256": sha or hashlib.sha256(payload).hexdigest(),
-        "source_system": "datamap",
+        "source_system": "sistema-origen",
         "delimiter": ",",
         "encoding": "utf-8",
         "columns": COLUMNS,

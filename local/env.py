@@ -18,8 +18,8 @@ DEFAULTS = {
     "AWS_ACCESS_KEY_ID": "test",
     "AWS_SECRET_ACCESS_KEY": "test",
     "AWS_ENDPOINT_URL": "http://localhost:4566",
-    "DATA_BUCKET": "datamap-datalake-local",
-    "LEDGER_TABLE": "datamap-run-ledger",
+    "DATA_BUCKET": "dataflow-datalake-local",
+    "LEDGER_TABLE": "dataflow-run-ledger",
     "QUERY_ENGINE": "duckdb",
     "RULES_PATH": str(ROOT / "rules" / "checks.yaml"),
     "LOCAL_WAREHOUSE": str(ROOT / "local" / "out" / "warehouse"),
@@ -28,7 +28,7 @@ DEFAULTS = {
 }
 
 
-ALERT_TOPIC_NAME = "datamap-alerts"
+ALERT_TOPIC_NAME = "dataflow-alerts"
 
 
 def configure(**overrides: str) -> None:

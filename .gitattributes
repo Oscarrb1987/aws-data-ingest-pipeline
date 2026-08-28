@@ -1,0 +1,19 @@
+# Normaliza finales de línea: el repo se clona en Linux, macOS y Windows.
+* text=auto eol=lf
+
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.csv  text eol=lf
+
+# Los SVG generados son texto, pero no aportan nada en un diff.
+docs/*.svg linguist-generated=true -diff
+
+# Los datos de ejemplo no deben contar como lenguaje del repositorio.
+sample_data/* linguist-vendored=true
+
+*.png binary
+*.parquet binary
