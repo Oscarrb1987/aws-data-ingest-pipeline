@@ -24,6 +24,11 @@ jobs:
         run: ruff check src tests infra local scripts
       - name: ruff format
         run: ruff format --check src tests infra local scripts
+      - name: El diagrama esta al dia
+        run: |
+          python scripts/make_architecture_svg.py
+          git diff --exit-code -- docs/ \
+            || (echo "::error::El diagrama no coincide con el generador. Ejecuta 'make diagram'." && exit 1)
 
   tests:
     name: Tests unitarios

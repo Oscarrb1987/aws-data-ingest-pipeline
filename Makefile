@@ -39,6 +39,9 @@ demo-ko: ## Ejecuta el pipeline con un fichero defectuoso (acaba en cuarentena)
 demo-drift: ## Simula datos pisados entre la verificacion A y la B
 	python local/run_pipeline.py --dataset clientes --file sample_data/clientes_ok.csv --simulate-drift
 
+diagram: ## Regenera el diagrama de arquitectura (SVG claro y oscuro)
+	python scripts/make_architecture_svg.py
+
 package: ## Empaqueta el codigo de las Lambdas en build/lambda
 	bash scripts/package_lambda.sh
 
@@ -51,4 +54,4 @@ deploy: package ## Despliega en AWS (requiere credenciales)
 destroy: ## Elimina el stack de AWS
 	cd infra && cdk destroy --all --force
 
-.PHONY: help install lint format test test-all up down demo demo-ko demo-drift package synth deploy destroy
+.PHONY: help install lint format test test-all up down demo demo-ko demo-drift diagram package synth deploy destroy

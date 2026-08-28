@@ -9,32 +9,14 @@ Functions + Lambda + Glue + Athena + DynamoDB + SNS**, desplegado con **AWS CDK
 (Python)**. Incluye una demo local con LocalStack para probarlo entero sin
 cuenta de AWS.
 
-```
-┌──────────┐   CSV + manifest    ┌───────────────────────────────────────────┐
-│ Datamap  │ ──────────────────► │  S3  landing/                             │
-└──────────┘                     └───────────────┬───────────────────────────┘
-                                                 │ EventBridge (Object Created)
-                                                 ▼
-                    ┌─────────────────────────────────────────────────────┐
-                    │  Step Functions · datamap-ingest-and-verify         │
-                    └─────────────────────────────────────────────────────┘
-                       │        │            │           │            │
-                       ▼        ▼            ▼           ▼            ▼
-                  ┌────────┐ ┌──────┐  ┌──────────┐ ┌───────┐  ┌──────────┐
-                  │ Lambda │ │ Glue │  │  Lambda  │ │ Wait  │  │  Lambda  │
-                  │validar │ │ ETL  │  │verificar │ │ hasta │  │verificar │
-                  │        │ │      │  │    A     │ │ 08:00 │  │    B     │
-                  └───┬────┘ └──┬───┘  └────┬─────┘ └───────┘  └────┬─────┘
-                      │ KO      │           │ Athena                │ Athena
-                      ▼         ▼           ▼                       ▼
-                 quarantine/  curated/   ┌──────────────────────────────┐
-                 + alerta     (Parquet)  │ reglas de calidad en SQL     │
-                                         └──────────────────────────────┘
-                                                 │
-              ┌──────────────────┐   estado de   │   ┌──────────────────────┐
-              │ DynamoDB ledger  │◄──cada paso───┴──►│ SNS → correo / Slack │
-              └──────────────────┘                   └──────────────────────┘
-```
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/aws-architecture-dark.svg">
+    <img alt="Arquitectura del pipeline en AWS" src="docs/aws-architecture.svg" width="100%">
+  </picture>
+</p>
+
+<p align="center"><sub>El diagrama se genera con <code>make diagram</code>, así que no se queda desfasado respecto a la arquitectura.</sub></p>
 
 ## El problema
 

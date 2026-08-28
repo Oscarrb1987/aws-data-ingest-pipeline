@@ -5,6 +5,10 @@ cuando algo falla.
 
 ## 1. Vista general
 
+![Servicios de AWS del pipeline](aws-architecture.svg)
+
+La misma vista en texto, por si el SVG no esta disponible:
+
 ```
                        ┌──────────────────────────────────────────────┐
                        │              CUENTA AWS                      │
